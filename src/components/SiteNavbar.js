@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container"
 import { Link } from "gatsby"
 const SiteNavbar = () => {
   return (
-    <Navbar sticky="top" bg="transparent" expand="md" variant="dark">
+    <Navbar sticky="top" bg="dark" expand="md" variant="dark">
       <Container>
         <Link to="/" className="navbar-brand">
           Aharon's Jewelry

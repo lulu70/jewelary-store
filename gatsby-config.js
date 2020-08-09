@@ -14,6 +14,13 @@ module.exports = {
         path: `${__dirname}/src/images/carousel-images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `grid-images`,
+        path: `${__dirname}/src/images/grid-images`,
+      },
+    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
   ],

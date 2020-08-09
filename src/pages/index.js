@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import SiteCarousel from "../components/SiteCarousel"
+import ImagesGrid from "../components/ImagesGrid"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           calling extra attention to featured content or information.
         </p>
       </Jumbotron>
+      <ImagesGrid />
     </Layout>
   )
 }

@@ -23,7 +23,6 @@ const SiteCarousel = () => {
       }
     `
   )
-  console.log(data)
   return (
     <Carousel
       controls={false}
