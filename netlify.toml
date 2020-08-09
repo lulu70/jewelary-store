@@ -1,0 +1,8 @@
+# explicit commands for building the site
+# and the folder to publish
+[build]
+command = "gatsby build"
+publish = "public"
+
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
