@@ -2,14 +2,10 @@ import React from "react"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
-// import NavDropdown from "react-bootstrap/NavDropdown"
-// import Form from "react-bootstrap/Form"
-// import FormControl from "react-bootstrap/FormControl"
-// import Button from "react-bootstrap/Button"
 import { Link } from "gatsby"
 const SiteNavbar = () => {
   return (
-    <Navbar sticky="top" bg="dark" expand="lg" variant="dark" className="px-0">
+    <Navbar sticky="top" bg="transparent" expand="md" variant="dark">
       <Container>
         <Link to="/" className="navbar-brand">
           Aharon's Jewelry

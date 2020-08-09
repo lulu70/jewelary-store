@@ -1,20 +1,14 @@
 /* The following block can be included in a custom.scss */
 $dark: #343a40;
+$light: #f8f9fa;
 
-* {
-  background-color: $dark;
-}
+$body-bg: $dark;
+$body-color: $light;
 
-.index__carousel-item {
-  max-height: 600px;
-  object-fit: cover;
-}
 /* make the customizations */
 $theme-colors: (
   "dark": $dark,
-  // "info": tomato,
-    // "danger": teal,
-    // "primary": orange,,,,
+  "light": $light,
 );
 
 /* import bootstrap to set changes */
