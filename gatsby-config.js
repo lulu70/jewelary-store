@@ -1,7 +1,7 @@
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: `Jewelry Store`,
+    title: `Aharon's Jewelry`,
     description: `A description of the store`,
     author: `Lior Cohen <liorco7079@gmail.com>`,
   },
