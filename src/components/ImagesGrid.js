@@ -26,7 +26,7 @@ const ImagesGrid = () => {
     <Container>
       <Row className="justify-content-between">
         {data.images.nodes.map(image => (
-          <Col md={4} key={image.id} className="mb-5">
+          <Col md={6} lg={4} key={image.id} className="mb-5">
             <GatsbyImage fluid={image.childImageSharp.fluid} alt={image.name} />
           </Col>
         ))}
