@@ -1,10 +1,20 @@
 /* The following block can be included in a custom.scss */
+$dark: #343a40;
 
+* {
+  background-color: $dark;
+}
+
+.index__carousel-item {
+  max-height: 600px;
+  object-fit: cover;
+}
 /* make the customizations */
 $theme-colors: (
+  "dark": $dark,
   // "info": tomato,
     // "danger": teal,
-    // "primary": orange
+    // "primary": orange,,,,
 );
 
 /* import bootstrap to set changes */

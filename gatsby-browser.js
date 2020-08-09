@@ -1,1 +1,1 @@
-import "./src/styles/custom-bootstrap.css"
+import "./src/styles/custom-styles.css"
