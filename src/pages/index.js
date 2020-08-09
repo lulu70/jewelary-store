@@ -3,10 +3,12 @@ import Layout from "../components/Layout"
 import Jumbotron from "react-bootstrap/Jumbotron"
 import SiteCarousel from "../components/SiteCarousel"
 import ImagesGrid from "../components/ImagesGrid"
+import SEO from "../components/SEO"
 
 export default function Home() {
   return (
     <Layout>
+      <SEO title="HOME" />
       <SiteCarousel />
       <Jumbotron className="bg-dark text-light text-center col-md-6 mx-auto">
         <h1>Hello, world!</h1>

@@ -2,13 +2,22 @@ import React from "react"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 const SiteNavbar = () => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
   return (
     <Navbar sticky="top" bg="dark" expand="md" variant="dark">
       <Container>
         <Link to="/" className="navbar-brand">
-          Aharon's Jewelry
+          {data.site.siteMetadata.title}
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

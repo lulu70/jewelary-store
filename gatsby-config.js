@@ -1,11 +1,10 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Jewelry Store`,
+    description: `A description of the store`,
+    author: `Lior Cohen <liorco7079@gmail.com>`,
+  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
