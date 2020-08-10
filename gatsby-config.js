@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   /* Your site config here */
   siteMetadata: {
@@ -13,14 +15,17 @@ module.exports = {
         path: `${__dirname}/src/images/carousel-images`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `grid-images`,
-        path: `${__dirname}/src/images/grid-images`,
-      },
-    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        // The domain name of your Shopify shop.
+        shopName: process.env.SHOPIFY_SHOP_NAME,
+
+        // The storefront access token
+        accessToken: process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN,
+      },
+    },
   ],
 }
