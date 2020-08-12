@@ -10,15 +10,15 @@ const Skull = ({ mdOnly }) => {
       transformOrigin: "bottom",
       opacity: 0,
       scale: 0,
-      duration: 1,
+      duration: 0.5,
     })
     tl.to(colRef.current, {
       opacity: 1,
       scale: 1,
-      duration: 0.4,
+      duration: 4,
     })
-    tl.to(colRef.current, { opacity: 0, duration: 0.5 }, "-=0.2")
-    tl.to(colRef.current, { height: 0, duration: 0.5 }, "-=0.2")
+    tl.to(colRef.current, { opacity: 0, duration: 1 }, "-=0.2")
+    tl.to(colRef.current, { height: 0, duration: 0.5 }, "-=0.5")
   }, [])
   return (
     <Col
