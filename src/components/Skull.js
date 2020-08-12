@@ -1,37 +1,49 @@
 import React from "react"
-import { useSpring, animated } from "react-spring"
-const Skull = () => {
-  const spring = useSpring({
-    config: {
-      duration: 5000,
-    },
-    from: {
-      transformOrigin: "top",
-      transform: "scale(0)",
+import Col from "react-bootstrap/Col"
+import { gsap } from "gsap"
+
+const Skull = ({ mdOnly }) => {
+  const colRef = React.useRef()
+  React.useEffect(() => {
+    const tl = gsap.timeline()
+    tl.from(colRef.current, {
+      transformOrigin: "bottom",
       opacity: 0,
-    },
-    transform: "scale(1)",
-    opacity: 1,
-  })
+      scale: 0,
+      duration: 1,
+    })
+    tl.to(colRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.4,
+    })
+    tl.to(colRef.current, { opacity: 0, duration: 0.5 }, "-=0.2")
+    tl.to(colRef.current, { height: 0, duration: 0.5 }, "-=0.2")
+  }, [])
   return (
-    <animated.svg
-      version="1.0"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1280.000000 1234.000000"
-      preserveAspectRatio="xMidYMid meet"
-      style={spring}
+    <Col
+      ref={colRef}
+      md={2}
+      xs={8}
+      className={`mt-5 mt-md-0  d-md-block ${mdOnly && "d-none"}`}
     >
-      <metadata>
-        Created by potrace 1.15, written by Peter Selinger 2001-2017
-      </metadata>
-      <g
-        transform="translate(0.000000,1234.000000) scale(0.100000,-0.100000)"
-        stroke="none"
-        fill="#f8f9fa"
+      <svg
+        version="1.0"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1280.000000 1234.000000"
+        preserveAspectRatio="xMidYMid meet"
       >
-        <path
-          id="main-skull"
-          d="M6155 12334 c-27 -2 -120 -8 -205 -14 -955 -67 -1847 -322 -2408
+        <metadata>
+          Created by potrace 1.15, written by Peter Selinger 2001-2017
+        </metadata>
+        <g
+          transform="translate(0.000000,1234.000000) scale(0.100000,-0.100000)"
+          stroke="none"
+          fill="#f8f9fa"
+        >
+          <path
+            id="main-skull"
+            d="M6155 12334 c-27 -2 -120 -8 -205 -14 -955 -67 -1847 -322 -2408
           -689 -440 -289 -824 -730 -1067 -1226 -318 -649 -390 -1284 -236 -2060 122
           -612 400 -1200 743 -1570 l65 -70 -39 -200 c-37 -189 -39 -211 -41 -400 -2
           -223 10 -329 54 -513 51 -212 135 -388 245 -518 l53 -63 -192 93 c-691 334
@@ -148,36 +160,37 @@ const Skull = () => {
 -146 75 -250 172 -80 74 -85 82 -172 253 -108 214 -166 299 -286 417 l-90 90
 -753 390 c-414 214 -757 392 -763 395 -5 4 15 58 50 131 72 151 105 248 134
 396 12 62 23 113 23 113 1 0 140 -65 310 -143z"
-        />
-        <path
-          id="leftEye"
-          d="M5280 7757 c-3 -3 -124 -20 -270 -37 -277 -33 -622 -81 -745 -105
+          />
+          <path
+            id="leftEye"
+            d="M5280 7757 c-3 -3 -124 -20 -270 -37 -277 -33 -622 -81 -745 -105
           -212 -40 -389 -171 -475 -350 -46 -95 -60 -159 -60 -264 0 -100 17 -154 132
           -430 50 -119 99 -241 111 -271 50 -136 244 -333 409 -416 218 -110 430 -117
           613 -21 219 116 751 854 826 1148 22 84 17 258 -9 352 -49 175 -139 293 -271
           358 -56 28 -79 33 -161 37 -52 2 -97 2 -100 -1z"
-        />
-        <path
-          id="rightEye"
-          d="M7347 7749 c-148 -35 -278 -175 -337 -364 -28 -89 -37 -245 -20 -343
+          />
+          <path
+            id="rightEye"
+            d="M7347 7749 c-148 -35 -278 -175 -337 -364 -28 -89 -37 -245 -20 -343
           31 -185 296 -616 595 -967 139 -163 251 -238 405 -271 86 -18 162 -13 279 18
           275 72 489 269 608 560 166 406 193 478 203 527 53 280 -121 566 -411 675 -90
           34 -338 73 -899 141 -291 36 -357 40 -423 24z"
-        />
-        <path
-          id="rightNose"
-          d="M6199 6100 c-123 -101 -208 -193 -291 -317 -159 -235 -227 -443 -246
+          />
+          <path
+            id="rightNose"
+            d="M6199 6100 c-123 -101 -208 -193 -291 -317 -159 -235 -227 -443 -246
           -754 -18 -283 42 -537 145 -617 91 -68 228 5 426 228 l76 85 3 724 c2 477 0
           725 -7 727 -5 2 -53 -32 -106 -76z"
-        />
-        <path
-          id="leftNose"
-          d="M6495 6170 c-4 -6 -4 -334 -1 -728 l7 -717 47 -59 c83 -102 216 -222
+          />
+          <path
+            id="leftNose"
+            d="M6495 6170 c-4 -6 -4 -334 -1 -728 l7 -717 47 -59 c83 -102 216 -222
           287 -257 90 -44 134 -38 191 25 91 100 129 267 121 536 -9 284 -36 407 -137
           617 -90 188 -207 345 -340 456 -145 121 -168 138 -175 127z"
-        />
-      </g>
-    </animated.svg>
+          />
+        </g>
+      </svg>
+    </Col>
   )
 }
 
