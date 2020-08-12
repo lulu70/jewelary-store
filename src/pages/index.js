@@ -7,15 +7,28 @@ import Col from "react-bootstrap/Col"
 import SiteCarousel from "../components/SiteCarousel"
 import Products from "../components/Products"
 import SEO from "../components/SEO"
-import svg from "../assets/hands.svg"
+import Skull from "../components/Skull"
+import { useSpring, animated } from "react-spring"
 export default function Home() {
+  const spring = useSpring({
+    config: {
+      duration: 5000,
+    },
+    from: {
+      maxHeight: 0,
+    },
+    maxHeight: 400,
+  })
+  const AnimatedCol = animated(Col)
   return (
     <Layout>
       <SEO title="HOME" />
       <SiteCarousel />
-      <Container>
+      <Container className="position-relative">
         <Row className="align-items-center justify-content-center">
-          <Col xs={2} />
+          <AnimatedCol md={2} xs={8} className="mt-5 mt-md-0" style={spring}>
+            <Skull />
+          </AnimatedCol>
           <Jumbotron className="bg-dark text-light text-center col-md-8">
             <h1 className="display-3">Hello, world!</h1>
             <p className="lead">
@@ -23,9 +36,9 @@ export default function Home() {
               calling extra attention to featured content or information.
             </p>
           </Jumbotron>
-          <Col xs={2} className="mb-4 d-none d-md-block">
-            <img src={svg} alt="hands" className="w-75" />
-          </Col>
+          <AnimatedCol md={2} className="d-none d-md-block" style={spring}>
+            <Skull />
+          </AnimatedCol>
         </Row>
         <Products />
       </Container>
