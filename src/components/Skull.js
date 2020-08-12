@@ -26,6 +26,9 @@ const Skull = ({ mdOnly }) => {
       md={2}
       xs={8}
       className={`mt-5 mt-md-0  d-md-block ${mdOnly && "d-none"}`}
+      style={{
+        opacity: 0,
+      }}
     >
       <svg
         version="1.0"

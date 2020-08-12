@@ -11,7 +11,8 @@
     "start": "npm run develop --scripts-prepend-node-path",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "push": "git push && ntl open"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
