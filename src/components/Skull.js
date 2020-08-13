@@ -5,20 +5,50 @@ import { gsap } from "gsap"
 const Skull = ({ mdOnly }) => {
   const colRef = React.useRef()
   React.useEffect(() => {
-    const tl = gsap.timeline()
-    tl.from(colRef.current, {
-      transformOrigin: "bottom",
-      opacity: 0,
-      scale: 0,
-      duration: 0.5,
-    })
-    tl.to(colRef.current, {
-      opacity: 1,
-      scale: 1,
-      duration: 4,
-    })
-    tl.to(colRef.current, { opacity: 0, duration: 1 }, "-=0.2")
-    tl.to(colRef.current, { height: 0, duration: 0.5 }, "-=0.5")
+    const tl = gsap
+      .timeline()
+      .to(colRef.current, {
+        duration: 2,
+        height: "auto",
+        autoAlpha: 0,
+        scale: 0,
+        y: 1000,
+        ease: "back",
+      })
+      .to(
+        colRef.current,
+        {
+          duration: 2,
+          autoAlpha: 1,
+          scale: 0.1,
+          y: 0,
+          ease: "back",
+        },
+        1
+      )
+      .to(colRef.current, {
+        duration: 2,
+        autoAlpha: 1,
+        scale: 1,
+        // ease: "back",
+      })
+      .to(
+        colRef.current,
+        {
+          duration: 2,
+          autoAlpha: 0,
+        },
+        "+=6"
+      )
+      .to(
+        colRef.current,
+        {
+          duration: 2,
+          height: 0,
+        },
+        "-=1"
+      )
+    tl.timeScale(3)
   }, [])
   return (
     <Col
@@ -27,7 +57,10 @@ const Skull = ({ mdOnly }) => {
       xs={8}
       className={`mt-5 mt-md-0  d-md-block ${mdOnly && "d-none"}`}
       style={{
+        visibility: "hidden",
         opacity: 0,
+        height: "0%",
+        // transform: "scale(0)",
       }}
     >
       <svg
