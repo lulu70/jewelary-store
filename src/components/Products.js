@@ -5,6 +5,8 @@ import Card from "react-bootstrap/Card"
 import Col from "react-bootstrap/Col"
 import GatsbyImage from "gatsby-image"
 import { graphql, useStaticQuery, Link } from "gatsby"
+import { AnimationContext } from "../context/AnimationsContextProvider"
+
 const Products = () => {
   const data = useStaticQuery(
     graphql`
@@ -37,8 +39,9 @@ const Products = () => {
       }
     `
   )
+  const { productsWrapperRef } = React.useContext(AnimationContext)
   return (
-    <>
+    <div ref={productsWrapperRef}>
       <h2 className="text-center mb-5 display-4">Products</h2>
       <Row className="justify-content-md-between justify-content-center">
         {data.products.nodes.map(product => (
@@ -90,7 +93,7 @@ const Products = () => {
           // </Col>
         ))}
       </Row>
-    </>
+    </div>
   )
 }
 

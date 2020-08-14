@@ -2,6 +2,7 @@ import React from "react"
 import Carousel from "react-bootstrap/Carousel"
 import { graphql, useStaticQuery } from "gatsby"
 import GatsbyImage from "gatsby-image"
+import { AnimationContext } from "../context/AnimationsContextProvider"
 
 const SiteCarousel = () => {
   const data = useStaticQuery(
@@ -23,19 +24,22 @@ const SiteCarousel = () => {
       }
     `
   )
+  const { carouselWrapperRef } = React.useContext(AnimationContext)
   return (
-    <Carousel
-      controls={false}
-      indicators={false}
-      interval={5000}
-      className="w-100"
-    >
-      {data.images.nodes.map(image => (
-        <Carousel.Item className="index__carousel-item w-100" key={image.id}>
-          <GatsbyImage alt={image.name} fluid={image.childImageSharp.fluid} />
-        </Carousel.Item>
-      ))}
-    </Carousel>
+    <div ref={carouselWrapperRef}>
+      <Carousel
+        controls={false}
+        indicators={false}
+        interval={5000}
+        className="w-100"
+      >
+        {data.images.nodes.map(image => (
+          <Carousel.Item className="index__carousel-item w-100" key={image.id}>
+            <GatsbyImage alt={image.name} fluid={image.childImageSharp.fluid} />
+          </Carousel.Item>
+        ))}
+      </Carousel>
+    </div>
   )
 }
 

@@ -3,6 +3,8 @@ import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import { AnimationContext } from "../context/AnimationsContextProvider"
+
 const SiteNavbar = () => {
   const data = useStaticQuery(graphql`
     {
@@ -13,8 +15,9 @@ const SiteNavbar = () => {
       }
     }
   `)
+  const { navbarRef } = React.useContext(AnimationContext)
   return (
-    <Navbar sticky="top" bg="dark" expand="md" variant="dark">
+    <Navbar ref={navbarRef} sticky="top" bg="dark" expand="md" variant="dark">
       <Container>
         <Link to="/" className="navbar-brand">
           {data.site.siteMetadata.title}

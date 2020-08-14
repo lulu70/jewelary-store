@@ -1,5 +1,4 @@
 import React from "react"
-import "./src/styles/custom-styles.css"
 
 import AnimationsContextProvider from "./src/context/AnimationsContextProvider"
 

@@ -1,9 +1,20 @@
 import React from "react"
 import SiteNavbar from "./SiteNavbar"
 import Container from "react-bootstrap/Container"
-const Layout = ({ children }) => {
+import { AnimationContext } from "../context/AnimationsContextProvider"
+const Layout = ({ children, location }) => {
+  const { layoutContainerRef } = React.useContext(AnimationContext)
+  console.log(location)
   return (
-    <Container fluid className="bg-dark p-0">
+    <Container
+      ref={layoutContainerRef}
+      fluid
+      className="bg-dark p-0"
+      style={{
+        opacity: location && location.pathname === "/" ? 0 : 1,
+        visibility: location && location.pathname === "/" ? false : true,
+      }}
+    >
       <SiteNavbar />
       <main>{children}</main>
     </Container>
