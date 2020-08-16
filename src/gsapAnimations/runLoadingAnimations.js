@@ -45,7 +45,6 @@ const runLoadingAnimations = ({
         scrub: 3,
         start: "+=600 100",
         end: "+=200",
-        markers: true,
         once: true,
       },
       defaults: {
