@@ -12,7 +12,7 @@ const Hero = () => {
       className="align-items-center justify-content-center overflow-hidden"
       ref={heroRowRef}
     >
-      <Skull colRef={firstSkullColRef} />
+      <Skull mdOnly colRef={firstSkullColRef} />
       <Jumbotron className="bg-transparent text-light text-center col-md-8">
         <h1 className="display-3">Hello, world!</h1>
         <p className="lead">
@@ -20,7 +20,7 @@ const Hero = () => {
           calling extra attention to featured content or information.
         </p>
       </Jumbotron>
-      <Skull mdOnly colRef={secondSkullColRef} />
+      <Skull colRef={secondSkullColRef} />
     </Row>
   )
 }

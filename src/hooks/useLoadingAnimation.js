@@ -1,5 +1,5 @@
 import React from "react"
-import runLoadingTimeline from "../gsapAnimations/runLoadingTimeline"
+import runLoadingAnimations from "../gsapAnimations/runLoadingAnimations"
 import { AnimationContext } from "../context/AnimationsContextProvider"
 
 const useLoadingAnimation = () => {
@@ -8,7 +8,7 @@ const useLoadingAnimation = () => {
     if (typeof window !== `undefined`) {
       window.scrollTo(0, 0)
     }
-    runLoadingTimeline(animationContext)
+    runLoadingAnimations(animationContext)
   }, [animationContext])
 }
 export default useLoadingAnimation

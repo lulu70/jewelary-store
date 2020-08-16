@@ -8,6 +8,7 @@ const Skull = ({ mdOnly, colRef }) => {
       md={2}
       xs={8}
       className={`mt-5 mt-md-0  d-md-block ${mdOnly && "d-none"}`}
+      style={{ height: 0, opacity: 0, visibility: "hidden" }}
     >
       <svg
         version="1.0"

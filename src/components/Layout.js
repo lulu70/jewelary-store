@@ -4,7 +4,6 @@ import Container from "react-bootstrap/Container"
 import { AnimationContext } from "../context/AnimationsContextProvider"
 const Layout = ({ children, location }) => {
   const { layoutContainerRef } = React.useContext(AnimationContext)
-  console.log(location)
   return (
     <Container
       ref={layoutContainerRef}
