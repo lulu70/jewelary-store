@@ -37,7 +37,7 @@ const runLoadingAnimations = ({
       autoAlpha: 0,
       y: -1000,
     })
-  tl.timeScale(2)
+  tl.timeScale(5)
   gsap
     .timeline({
       scrollTrigger: {

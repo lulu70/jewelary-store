@@ -4,6 +4,17 @@ import Nav from "react-bootstrap/Nav"
 import Container from "react-bootstrap/Container"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { AnimationContext } from "../context/AnimationsContextProvider"
+import { ShopifyStoreContext } from "../context/ShopifyStoreContextProvider"
+import reduce from "lodash/reduce"
+
+const useQuantity = () => {
+  const {
+    store: { checkout },
+  } = React.useContext(ShopifyStoreContext)
+  const items = checkout ? checkout.lineItems : []
+  const total = reduce(items, (acc, item) => acc + item.quantity, 0)
+  return [total !== 0, total]
+}
 
 const SiteNavbar = () => {
   const data = useStaticQuery(graphql`
@@ -16,6 +27,8 @@ const SiteNavbar = () => {
     }
   `)
   const { navbarRef } = React.useContext(AnimationContext)
+  const [hasItems, quantity] = useQuantity()
+
   return (
     <Navbar ref={navbarRef} sticky="top" bg="dark" expand="md" variant="dark">
       <Container>
@@ -47,6 +60,14 @@ const SiteNavbar = () => {
         </Form> */}
         </Navbar.Collapse>
       </Container>
+      <Link to="/cart" className="nav-link text-light">
+        <div className="row align-items-center">
+          Cart 🛍{" "}
+          {hasItems && (
+            <span className="ml-2 badge badge-light">{quantity}</span>
+          )}
+        </div>
+      </Link>
     </Navbar>
   )
 }
