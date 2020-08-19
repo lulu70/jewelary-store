@@ -85,7 +85,6 @@ const ProductForm = ({ product }) => {
     minimumFractionDigits: 2,
     style: "currency",
   }).format(variant.price)
-  console.log(options)
   return (
     <>
       <h3>{price}</h3>
